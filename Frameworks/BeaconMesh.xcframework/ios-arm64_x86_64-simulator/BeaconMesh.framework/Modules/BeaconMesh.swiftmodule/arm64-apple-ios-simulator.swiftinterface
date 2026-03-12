@@ -1,0 +1,164 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.2.4 effective-5.10 (swiftlang-6.2.4.1.4 clang-1700.6.4.2)
+// swift-module-flags: -target arm64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-upcoming-feature DisableOutwardActorInference -enable-upcoming-feature InferSendableFromCaptures -enable-upcoming-feature GlobalActorIsolatedTypesUsability -enable-upcoming-feature MemberImportVisibility -enable-upcoming-feature InferIsolatedConformances -enable-upcoming-feature NonisolatedNonsendingByDefault -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name BeaconMesh
+// swift-module-flags-ignorable:  -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.4
+import BridgefySDK
+import Combine
+import CoreBluetooth
+import CoreLocation
+import Foundation
+import Swift
+import UIKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+public struct AnalyticsEvent {
+  public let type: Swift.String
+  public let logLevel: Swift.String
+  public let metadata: [Swift.String : Any]?
+  public let trails: [[Swift.String : Any]]?
+  public let location: [Swift.String : Any]?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(type: Swift.String, logLevel: BeaconMesh.LogEvent, metadata: [Swift.String : Any]? = nil, trails: [[Swift.String : Any]]? = nil, location: [Swift.String : Any]? = nil)
+  #endif
+}
+public enum LogEvent : Swift.String {
+  case info
+  case error
+  case warning
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.String)
+  #endif
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum SDKAnalyticsEvent {
+  case beaconDetectedLocal(minewMAC: Swift.String, lat: Swift.Double, lon: Swift.Double)
+  case beaconDetectedMesh(minewMAC: Swift.String, lat: Swift.Double, lon: Swift.Double)
+  case beaconReportedSuccess
+  case beaconReportedFailed(error: Swift.String?)
+  case meshBroadcastSuccess
+  case meshBroadcastFailed(error: Swift.String?)
+  case locationUpdateSuccess
+  case locationUpdateFailed(error: Swift.String?)
+  case sdkInitialized
+  case sdkStarted
+  case sdkStopped
+  case sdkError(error: Swift.String?)
+  case bridgefyError(error: Swift.String?)
+  case apiError(error: Swift.String?)
+  case permissionDenied(permission: Swift.String?)
+}
+extension BeaconMesh.SDKAnalyticsEvent {
+  public var event: BeaconMesh.AnalyticsEvent {
+    get
+  }
+}
+public protocol AnalyticsReporting {
+  func track(event: BeaconMesh.AnalyticsEvent)
+}
+public enum BeaconMeshClientError : Swift.Error {
+  case bluetoothPoweredOff
+  case bluetoothUnauthorized
+  case locationDisabled
+  case locationUnauthorized
+  case networkUnavailable
+  case licenseError(Swift.Int)
+  case internalError(Swift.String)
+}
+public struct Beacon {
+  public let minewMAC: Swift.String
+  public let name: Swift.String
+  public let rssi: Swift.String
+  public let timestamp: Foundation.Date
+  public let latitud: Swift.Double
+  public let longitude: Swift.Double
+  public let services: Swift.String
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(payload: [Swift.String : Swift.String])
+  #endif
+}
+public protocol BeaconMeshClientDelegate : AnyObject {
+  func beaconMeshClient(_ client: BeaconMesh.BeaconMeshClient, didReceiveP2PMessage payload: Foundation.Data)
+  func beaconMeshClient(_ client: BeaconMesh.BeaconMeshClient, didReceiveBroadcastMessage payload: Foundation.Data)
+  func beaconMeshClient(_ client: BeaconMesh.BeaconMeshClient, didDetectBeacon beacon: BeaconMesh.Beacon)
+  func beaconMeshClient(_ client: BeaconMesh.BeaconMeshClient, didLoseBeacon beacon: BeaconMesh.Beacon)
+  func beaconMeshClient(_ client: BeaconMesh.BeaconMeshClient, peerDidConnect peerUUID: Foundation.UUID)
+  func beaconMeshClient(_ client: BeaconMesh.BeaconMeshClient, peerDidDisconnect peerUUID: Foundation.UUID)
+  func beaconMeshClient(_ client: BeaconMesh.BeaconMeshClient, didEncounterError error: BeaconMesh.BeaconMeshClientError)
+}
+final public class UserDefaultsCiclopeStateStoring {
+  public init(userDefaults: Foundation.UserDefaults = .standard)
+  final public func deviceUUID() -> Swift.String
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func loadToken() -> Swift.String?
+  #endif
+  final public func clear()
+  @objc deinit
+}
+public enum IncomingMeshEvent {
+  case p2pMessage(payload: Foundation.Data)
+  case broadcastMessage(payload: Foundation.Data)
+  case beacon(metadata: [Swift.String : Swift.String])
+}
+public protocol MessagingManaging {
+  #if compiler(>=5.3) && $NonescapableTypes
+  func makeMessage(payload: Foundation.Data, to userId: Foundation.UUID?) throws -> Foundation.Data
+  #endif
+  func makeBeaconMessage(_ beaconInfo: [Swift.String : Swift.String]) throws -> Foundation.Data
+  func parseIncomingData(_ data: Foundation.Data) throws -> BeaconMesh.IncomingMeshEvent
+}
+public enum TransportEvent {
+  case initialized
+  case started
+  case stopped
+  public static func == (a: BeaconMesh.TransportEvent, b: BeaconMesh.TransportEvent) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public protocol TransportManagerDelegate : AnyObject {
+  func transportManager(_ manager: any BeaconMesh.TransportManaging, didReceive data: Foundation.Data)
+  func transportManager(_ manager: any BeaconMesh.TransportManaging, didPeerConnect peerUUID: Foundation.UUID)
+  func transportManager(_ manager: any BeaconMesh.TransportManaging, didPeerDisconnect peerUUID: Foundation.UUID)
+  func transportManager(_ manager: any BeaconMesh.TransportManaging, didEncounterError error: BeaconMesh.BeaconMeshClientError)
+}
+public protocol TransportManaging : AnyObject {
+  #if compiler(>=5.3) && $NonescapableTypes
+  var delegate: (any BeaconMesh.TransportManagerDelegate)? { get set }
+  #endif
+  func start(apiKey: Swift.String) throws
+  func stop()
+  func pause()
+  func send(_ data: Foundation.Data) throws
+  func send(_ data: Foundation.Data, to userId: Foundation.UUID) throws
+}
+public enum SDKInfo {
+  public static let version: Swift.String
+  public static let osVersion: Swift.String
+}
+final public class BeaconMeshClient {
+  weak final public var delegate: (any BeaconMesh.BeaconMeshClientDelegate)?
+  public init()
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  final nonisolated(nonsending) public func start(apiKey: Swift.String) async throws
+  #endif
+  final public func stop()
+  final public func sendP2PMessage(_ payload: Foundation.Data, to userId: Foundation.UUID)
+  final public func sendBroadcastMessage(_ payload: Foundation.Data)
+  @objc deinit
+}
+extension BeaconMesh.BeaconMeshClient : BeaconMesh.TransportManagerDelegate {
+  final public func transportManager(_ manager: any BeaconMesh.TransportManaging, didPeerConnect peerUUID: Foundation.UUID)
+  final public func transportManager(_ manager: any BeaconMesh.TransportManaging, didPeerDisconnect peerUUID: Foundation.UUID)
+  final public func transportManager(_ manager: any BeaconMesh.TransportManaging, didReceive data: Foundation.Data)
+  final public func transportManager(_ manager: any BeaconMesh.TransportManaging, didEncounterError error: BeaconMesh.BeaconMeshClientError)
+}
+extension BeaconMesh.LogEvent : Swift.Equatable {}
+extension BeaconMesh.LogEvent : Swift.Hashable {}
+extension BeaconMesh.LogEvent : Swift.RawRepresentable {}
+extension BeaconMesh.TransportEvent : Swift.Equatable {}
+extension BeaconMesh.TransportEvent : Swift.Hashable {}
