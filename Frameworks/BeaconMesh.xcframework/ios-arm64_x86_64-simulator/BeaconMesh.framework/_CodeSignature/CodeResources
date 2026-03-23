@@ -10,43 +10,43 @@
 		</data>
 		<key>Modules/BeaconMesh.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		apD1Qo+C3hYBnfU9LbbIzvGkoMU=
+		b99e8Bj7gf7qJN7AxmEAM3JieoI=
 		</data>
 		<key>Modules/BeaconMesh.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		2Jh0/bOp9pZXYTvqYvlK+s2sd/o=
+		/T9Yfr62RI0quGOA6aoHddkGoSs=
 		</data>
 		<key>Modules/BeaconMesh.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		85L+YPlT3OUq158RABhr3u5ZVDk=
+		XEFFiryL8M79GqBeM8ev+k7DxJo=
 		</data>
 		<key>Modules/BeaconMesh.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		2Jh0/bOp9pZXYTvqYvlK+s2sd/o=
+		/T9Yfr62RI0quGOA6aoHddkGoSs=
 		</data>
 		<key>Modules/BeaconMesh.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		BDM0feR/Q5ZDXbQ9BwT9J/nJ87o=
+		Cg/46j3TX5Tz2Ew8ctQU3PLP9R0=
 		</data>
 		<key>Modules/BeaconMesh.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		apD1Qo+C3hYBnfU9LbbIzvGkoMU=
+		b99e8Bj7gf7qJN7AxmEAM3JieoI=
 		</data>
 		<key>Modules/BeaconMesh.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		KTMUiAyBDMWW7ObPc3zosrIkx/U=
+		RMZqmKgX+Wq6ob4kpLfBLfs3FoQ=
 		</data>
 		<key>Modules/BeaconMesh.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		1Vska1p3X1a9otBCtVmZPuqGmlA=
+		p2RQ5YXYW51p0OnVWQkYw7h5+54=
 		</data>
 		<key>Modules/BeaconMesh.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		KTMUiAyBDMWW7ObPc3zosrIkx/U=
+		RMZqmKgX+Wq6ob4kpLfBLfs3FoQ=
 		</data>
 		<key>Modules/BeaconMesh.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		VO0dMn7m8lZr3SOqAc6dK3eY0bY=
+		L3R3l/qe7h/TAikWW+it8JvIRtM=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -55,70 +55,70 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			3FCd0cMr3G8MoEVJcuZVzMqsTcdw9iE0I7HAtuxNNsI=
+			tYgoJEcPZ/ihRrFOrHbpYXFjSTIMOelXSL+NGQ31eZM=
 			</data>
 		</dict>
 		<key>Modules/BeaconMesh.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			jrAfV3EEbVpQ2yv//7Om6VddFQLtHgrHG4GjQJW4ies=
+			WP1x6MYEXHAmjqtv5utZZ7eVIcXSk7Ly+bb7S23enoU=
 			</data>
 		</dict>
 		<key>Modules/BeaconMesh.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Y7iwjKVYhvlmAf85ljZxFhFp3wwNo8SlCCRMA3xNkJo=
+			Zh1IYL9L8hQHSo2G7Br1+jxdCTgAN6tehEB6cyjMHiA=
 			</data>
 		</dict>
 		<key>Modules/BeaconMesh.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			jrAfV3EEbVpQ2yv//7Om6VddFQLtHgrHG4GjQJW4ies=
+			WP1x6MYEXHAmjqtv5utZZ7eVIcXSk7Ly+bb7S23enoU=
 			</data>
 		</dict>
 		<key>Modules/BeaconMesh.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ZgcrCn7SmqrRVPJ/a810wxmYJLThKRfCvXe/iZfPYsA=
+			fnTHacbjzv8aPv9ERm/OtxfzsPlQh93XL9Y37xLgtvE=
 			</data>
 		</dict>
 		<key>Modules/BeaconMesh.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			3FCd0cMr3G8MoEVJcuZVzMqsTcdw9iE0I7HAtuxNNsI=
+			tYgoJEcPZ/ihRrFOrHbpYXFjSTIMOelXSL+NGQ31eZM=
 			</data>
 		</dict>
 		<key>Modules/BeaconMesh.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			EltczZX6hUM+LMvumRkfY4/xIidomAOFcyGaqomQM2g=
+			9jmFUXAI81Qv7IbWbGxYIGrDZn3SMfJbNKG5fzJ+p08=
 			</data>
 		</dict>
 		<key>Modules/BeaconMesh.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			BpdU+FIr98v+6CCzCDf+7bd9/qRwZOnK/0dK0KCzCM0=
+			8v5PhPgFTf0OWYqaZTGnB04bWR9G88rVG+z50Gbblc0=
 			</data>
 		</dict>
 		<key>Modules/BeaconMesh.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			EltczZX6hUM+LMvumRkfY4/xIidomAOFcyGaqomQM2g=
+			9jmFUXAI81Qv7IbWbGxYIGrDZn3SMfJbNKG5fzJ+p08=
 			</data>
 		</dict>
 		<key>Modules/BeaconMesh.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			YtJm/nZBZ82L/ozHWU4XsBOwHUyACDA1ZS4qJvAzPe8=
+			eoYF2+ERqQNJOxa5kIkqJdGEc3TP6rwee2SLOvZ+TL8=
 			</data>
 		</dict>
 	</dict>

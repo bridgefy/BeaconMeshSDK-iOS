@@ -67,6 +67,14 @@ public enum BeaconMeshClientError : Swift.Error {
   case networkUnavailable
   case licenseError(Swift.Int)
   case internalError(Swift.String)
+  case notInitialized
+}
+extension BeaconMesh.BeaconMeshClientError : Foundation.LocalizedError {
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var errorDescription: Swift.String? {
+    get
+  }
+  #endif
 }
 public struct Beacon {
   public let minewMAC: Swift.String
@@ -81,8 +89,8 @@ public struct Beacon {
   #endif
 }
 public protocol BeaconMeshClientDelegate : AnyObject {
-  func beaconMeshClient(_ client: BeaconMesh.BeaconMeshClient, didReceiveP2PMessage payload: Foundation.Data)
-  func beaconMeshClient(_ client: BeaconMesh.BeaconMeshClient, didReceiveBroadcastMessage payload: Foundation.Data)
+  func beaconMeshClient(_ client: BeaconMesh.BeaconMeshClient, didReceiveP2PMessage payload: Foundation.Data, from peerID: Foundation.UUID)
+  func beaconMeshClient(_ client: BeaconMesh.BeaconMeshClient, didReceiveBroadcastMessage payload: Foundation.Data, from peerID: Foundation.UUID)
   func beaconMeshClient(_ client: BeaconMesh.BeaconMeshClient, didDetectBeacon beacon: BeaconMesh.Beacon)
   func beaconMeshClient(_ client: BeaconMesh.BeaconMeshClient, didLoseBeacon beacon: BeaconMesh.Beacon)
   func beaconMeshClient(_ client: BeaconMesh.BeaconMeshClient, peerDidConnect peerUUID: Foundation.UUID)
@@ -121,7 +129,7 @@ public enum TransportEvent {
   }
 }
 public protocol TransportManagerDelegate : AnyObject {
-  func transportManager(_ manager: any BeaconMesh.TransportManaging, didReceive data: Foundation.Data)
+  func transportManager(_ manager: any BeaconMesh.TransportManaging, didReceive data: Foundation.Data, from peerUUID: Foundation.UUID)
   func transportManager(_ manager: any BeaconMesh.TransportManaging, didPeerConnect peerUUID: Foundation.UUID)
   func transportManager(_ manager: any BeaconMesh.TransportManaging, didPeerDisconnect peerUUID: Foundation.UUID)
   func transportManager(_ manager: any BeaconMesh.TransportManaging, didEncounterError error: BeaconMesh.BeaconMeshClientError)
@@ -130,11 +138,15 @@ public protocol TransportManaging : AnyObject {
   #if compiler(>=5.3) && $NonescapableTypes
   var delegate: (any BeaconMesh.TransportManagerDelegate)? { get set }
   #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  var currentUUID: Foundation.UUID? { get }
+  #endif
   func start(apiKey: Swift.String) throws
   func stop()
   func pause()
   func send(_ data: Foundation.Data) throws
   func send(_ data: Foundation.Data, to userId: Foundation.UUID) throws
+  func destroySession()
 }
 public enum SDKInfo {
   public static let version: Swift.String
@@ -143,18 +155,24 @@ public enum SDKInfo {
 final public class BeaconMeshClient {
   weak final public var delegate: (any BeaconMesh.BeaconMeshClientDelegate)?
   public init()
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public var currentUUID: Foundation.UUID? {
+    get
+  }
+  #endif
   #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
   final nonisolated(nonsending) public func start(apiKey: Swift.String) async throws
   #endif
   final public func stop()
-  final public func sendP2PMessage(_ payload: Foundation.Data, to userId: Foundation.UUID)
-  final public func sendBroadcastMessage(_ payload: Foundation.Data)
+  final public func resetSession()
+  final public func sendP2PMessage(_ payload: Foundation.Data, to userId: Foundation.UUID) throws
+  final public func sendBroadcastMessage(_ payload: Foundation.Data) throws
   @objc deinit
 }
 extension BeaconMesh.BeaconMeshClient : BeaconMesh.TransportManagerDelegate {
   final public func transportManager(_ manager: any BeaconMesh.TransportManaging, didPeerConnect peerUUID: Foundation.UUID)
   final public func transportManager(_ manager: any BeaconMesh.TransportManaging, didPeerDisconnect peerUUID: Foundation.UUID)
-  final public func transportManager(_ manager: any BeaconMesh.TransportManaging, didReceive data: Foundation.Data)
+  final public func transportManager(_ manager: any BeaconMesh.TransportManaging, didReceive data: Foundation.Data, from peerUUID: Foundation.UUID)
   final public func transportManager(_ manager: any BeaconMesh.TransportManaging, didEncounterError error: BeaconMesh.BeaconMeshClientError)
 }
 extension BeaconMesh.LogEvent : Swift.Equatable {}

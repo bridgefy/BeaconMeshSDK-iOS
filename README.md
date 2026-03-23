@@ -59,20 +59,58 @@ Task {
 client.stop()
 ```
 
+**Current UUID**
+
+Unique identifier used for mesh communication.
+```swift
+let uuid = client.currentUUID
+```
+The UUID:
+
+* is generated after calling start(apiKey:)
+* persists across app launches
+* changes only after calling resetSession()
+
+**Reset Session**
+
+Reset the current SDK identity and generate a new UUID on the next start.
+```swift
+client.resetSession()
+
+try await client.start(apiKey: "YOUR_API_KEY")
+
+print(client.currentUUID) // new UUID
+```
+
+Use cases:
+
+* user logout
+* switching accounts
+* resetting corrupted sessions
+
 ## Sending Messages
 **Peer-to-Peer Message**
 
 ```swift
-let payload = "Hello!".data(using: .utf8)!
-let targetUUID: UUID = // the peer UUID
+let payload = "Hello".data(using: .utf8)!
+let peerUUID: UUID = ...
 
-client.sendP2PMessage(payload, to: targetUUID)
+do {
+    try client.sendP2PMessage(payload, to: peerUUID)
+} catch {
+    print("Failed to send P2P message:", error)
+}
 ```
 
 **Broadcast Message**
 ```swift
-let payload = "Hello everyone!".data(using: .utf8)!
-client.sendBroadcastMessage(payload)
+let payload = "Hello everyone".data(using: .utf8)!
+
+do {
+    try client.sendBroadcastMessage(payload)
+} catch {
+    print("Failed to send broadcast message:", error)
+}
 ```
 
 ## Delegate Methods
@@ -80,34 +118,65 @@ client.sendBroadcastMessage(payload)
 **Implement the BeaconMeshClientDelegate to receive events:**
 
 ```swift
-extension YourClass: BeaconMeshClientDelegate {
+extension MyClass: BeaconMeshClientDelegate {
+
+    // MARK: Messages
     
-    func beaconMeshClient(_ client: BeaconMeshClient, didReceiveP2PMessage payload: Data) {
-        print("Received P2P message:", payload)
+    func beaconMeshClient(
+        _ client: BeaconMeshClient,
+        didReceiveP2PMessage payload: Data,
+        from peerID: UUID
+    ) {
+        print("P2P message from:", peerID)
     }
 
-    func beaconMeshClient(_ client: BeaconMeshClient, didReceiveBroadcastMessage payload: Data) {
-        print("Received broadcast message:", payload)
+    func beaconMeshClient(
+        _ client: BeaconMeshClient,
+        didReceiveBroadcastMessage payload: Data,
+        from peerID: UUID
+    ) {
+        print("Broadcast message from:", peerID)
     }
 
-    func beaconMeshClient(_ client: BeaconMeshClient, didDetectBeacon beacon: Beacon) {
-        print("Detected beacon:", beacon)
+    // MARK: Beacons
+    
+    func beaconMeshClient(
+        _ client: BeaconMeshClient,
+        didDetectBeacon beacon: Beacon
+    ) {
+        print("Beacon detected:", beacon)
     }
 
-    func beaconMeshClient(_ client: BeaconMeshClient, didLoseBeacon beacon: Beacon) {
-        print("Lost beacon:", beacon)
+    func beaconMeshClient(
+        _ client: BeaconMeshClient,
+        didLoseBeacon beacon: Beacon
+    ) {
+        print("Beacon lost:", beacon)
     }
 
-    func beaconMeshClient(_ client: BeaconMeshClient, peerDidConnect peerUUID: UUID) {
+    // MARK: Peers
+    
+    func beaconMeshClient(
+        _ client: BeaconMeshClient,
+        peerDidConnect peerUUID: UUID
+    ) {
         print("Peer connected:", peerUUID)
     }
 
-    func beaconMeshClient(_ client: BeaconMeshClient, peerDidDisconnect peerUUID: UUID) {
+    func beaconMeshClient(
+        _ client: BeaconMeshClient,
+        peerDidDisconnect peerUUID: UUID
+    ) {
         print("Peer disconnected:", peerUUID)
     }
 
-    func beaconMeshClient(_ client: BeaconMeshClient, didEncounterError error: BeaconMeshClientError) {
-        print("SDK Error:", error)
+    // MARK: Errors
+    
+    func beaconMeshClient(
+        _ client: BeaconMeshClient,
+        didEncounterError error: BeaconMeshClientError
+    ) {
+        print("SDK error:", error)
     }
 }
 ```
@@ -119,3 +188,7 @@ Make sure Bluetooth and Location permissions are granted at runtime.
 The SDK uses background Bluetooth scanning to detect nearby devices and beacons.
 
 The start(apiKey:) method must be called before sending or receiving messages.
+
+UUID is only available after the SDK starts
+
+Resetting the session invalidates the current identity

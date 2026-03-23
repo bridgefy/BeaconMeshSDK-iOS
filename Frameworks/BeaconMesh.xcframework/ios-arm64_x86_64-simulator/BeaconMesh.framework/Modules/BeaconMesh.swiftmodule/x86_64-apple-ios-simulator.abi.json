@@ -2082,6 +2082,101 @@
             "usr": "s:10BeaconMesh0aB11ClientErrorO08internalD0yACSScACmF",
             "mangledName": "$s10BeaconMesh0aB11ClientErrorO08internalD0yACSScACmF",
             "moduleName": "BeaconMesh"
+          },
+          {
+            "kind": "Var",
+            "name": "notInitialized",
+            "printedName": "notInitialized",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(BeaconMesh.BeaconMeshClientError.Type) -> BeaconMesh.BeaconMeshClientError",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "BeaconMeshClientError",
+                    "printedName": "BeaconMesh.BeaconMeshClientError",
+                    "usr": "s:10BeaconMesh0aB11ClientErrorO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "BeaconMesh.BeaconMeshClientError.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "BeaconMeshClientError",
+                        "printedName": "BeaconMesh.BeaconMeshClientError",
+                        "usr": "s:10BeaconMesh0aB11ClientErrorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:10BeaconMesh0aB11ClientErrorO14notInitializedyA2CmF",
+            "mangledName": "$s10BeaconMesh0aB11ClientErrorO14notInitializedyA2CmF",
+            "moduleName": "BeaconMesh"
+          },
+          {
+            "kind": "Var",
+            "name": "errorDescription",
+            "printedName": "errorDescription",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:10BeaconMesh0aB11ClientErrorO16errorDescriptionSSSgvp",
+            "mangledName": "$s10BeaconMesh0aB11ClientErrorO16errorDescriptionSSSgvp",
+            "moduleName": "BeaconMesh",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10BeaconMesh0aB11ClientErrorO16errorDescriptionSSSgvg",
+                "mangledName": "$s10BeaconMesh0aB11ClientErrorO16errorDescriptionSSSgvg",
+                "moduleName": "BeaconMesh",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
           }
         ],
         "declKind": "Enum",
@@ -2126,6 +2221,13 @@
             "printedName": "SendableMetatype",
             "usr": "s:s16SendableMetatypeP",
             "mangledName": "$ss16SendableMetatypeP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "LocalizedError",
+            "printedName": "LocalizedError",
+            "usr": "s:10Foundation14LocalizedErrorP",
+            "mangledName": "$s10Foundation14LocalizedErrorP"
           }
         ]
       },
@@ -2544,7 +2646,7 @@
           {
             "kind": "Function",
             "name": "beaconMeshClient",
-            "printedName": "beaconMeshClient(_:didReceiveP2PMessage:)",
+            "printedName": "beaconMeshClient(_:didReceiveP2PMessage:from:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -2562,11 +2664,17 @@
                 "name": "Data",
                 "printedName": "Foundation.Data",
                 "usr": "s:10Foundation4DataV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UUID",
+                "printedName": "Foundation.UUID",
+                "usr": "s:10Foundation4UUIDV"
               }
             ],
             "declKind": "Func",
-            "usr": "s:10BeaconMesh0aB14ClientDelegateP06beaconbC0_20didReceiveP2PMessageyAA0abC0C_10Foundation4DataVtF",
-            "mangledName": "$s10BeaconMesh0aB14ClientDelegateP06beaconbC0_20didReceiveP2PMessageyAA0abC0C_10Foundation4DataVtF",
+            "usr": "s:10BeaconMesh0aB14ClientDelegateP06beaconbC0_20didReceiveP2PMessage4fromyAA0abC0C_10Foundation4DataVAI4UUIDVtF",
+            "mangledName": "$s10BeaconMesh0aB14ClientDelegateP06beaconbC0_20didReceiveP2PMessage4fromyAA0abC0C_10Foundation4DataVAI4UUIDVtF",
             "moduleName": "BeaconMesh",
             "genericSig": "<τ_0_0 where τ_0_0 : BeaconMesh.BeaconMeshClientDelegate>",
             "sugared_genericSig": "<Self where Self : BeaconMesh.BeaconMeshClientDelegate>",
@@ -2580,7 +2688,7 @@
           {
             "kind": "Function",
             "name": "beaconMeshClient",
-            "printedName": "beaconMeshClient(_:didReceiveBroadcastMessage:)",
+            "printedName": "beaconMeshClient(_:didReceiveBroadcastMessage:from:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -2598,11 +2706,17 @@
                 "name": "Data",
                 "printedName": "Foundation.Data",
                 "usr": "s:10Foundation4DataV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UUID",
+                "printedName": "Foundation.UUID",
+                "usr": "s:10Foundation4UUIDV"
               }
             ],
             "declKind": "Func",
-            "usr": "s:10BeaconMesh0aB14ClientDelegateP06beaconbC0_26didReceiveBroadcastMessageyAA0abC0C_10Foundation4DataVtF",
-            "mangledName": "$s10BeaconMesh0aB14ClientDelegateP06beaconbC0_26didReceiveBroadcastMessageyAA0abC0C_10Foundation4DataVtF",
+            "usr": "s:10BeaconMesh0aB14ClientDelegateP06beaconbC0_26didReceiveBroadcastMessage4fromyAA0abC0C_10Foundation4DataVAI4UUIDVtF",
+            "mangledName": "$s10BeaconMesh0aB14ClientDelegateP06beaconbC0_26didReceiveBroadcastMessage4fromyAA0abC0C_10Foundation4DataVAI4UUIDVtF",
             "moduleName": "BeaconMesh",
             "genericSig": "<τ_0_0 where τ_0_0 : BeaconMesh.BeaconMeshClientDelegate>",
             "sugared_genericSig": "<Self where Self : BeaconMesh.BeaconMeshClientDelegate>",
@@ -3927,7 +4041,7 @@
           {
             "kind": "Function",
             "name": "transportManager",
-            "printedName": "transportManager(_:didReceive:)",
+            "printedName": "transportManager(_:didReceive:from:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -3945,11 +4059,17 @@
                 "name": "Data",
                 "printedName": "Foundation.Data",
                 "usr": "s:10Foundation4DataV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UUID",
+                "printedName": "Foundation.UUID",
+                "usr": "s:10Foundation4UUIDV"
               }
             ],
             "declKind": "Func",
-            "usr": "s:10BeaconMesh24TransportManagerDelegateP09transportD0_10didReceiveyAA0C8Managing_p_10Foundation4DataVtF",
-            "mangledName": "$s10BeaconMesh24TransportManagerDelegateP09transportD0_10didReceiveyAA0C8Managing_p_10Foundation4DataVtF",
+            "usr": "s:10BeaconMesh24TransportManagerDelegateP09transportD0_10didReceive4fromyAA0C8Managing_p_10Foundation4DataVAH4UUIDVtF",
+            "mangledName": "$s10BeaconMesh24TransportManagerDelegateP09transportD0_10didReceive4fromyAA0C8Managing_p_10Foundation4DataVAH4UUIDVtF",
             "moduleName": "BeaconMesh",
             "genericSig": "<τ_0_0 where τ_0_0 : BeaconMesh.TransportManagerDelegate>",
             "sugared_genericSig": "<Self where Self : BeaconMesh.TransportManagerDelegate>",
@@ -4214,6 +4334,64 @@
             ]
           },
           {
+            "kind": "Var",
+            "name": "currentUUID",
+            "printedName": "currentUUID",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.UUID?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UUID",
+                    "printedName": "Foundation.UUID",
+                    "usr": "s:10Foundation4UUIDV"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:10BeaconMesh17TransportManagingP11currentUUID10Foundation0F0VSgvp",
+            "mangledName": "$s10BeaconMesh17TransportManagingP11currentUUID10Foundation0F0VSgvp",
+            "moduleName": "BeaconMesh",
+            "protocolReq": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Foundation.UUID?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "UUID",
+                        "printedName": "Foundation.UUID",
+                        "usr": "s:10Foundation4UUIDV"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10BeaconMesh17TransportManagingP11currentUUID10Foundation0F0VSgvg",
+                "mangledName": "$s10BeaconMesh17TransportManagingP11currentUUID10Foundation0F0VSgvg",
+                "moduleName": "BeaconMesh",
+                "genericSig": "<τ_0_0 where τ_0_0 : BeaconMesh.TransportManaging>",
+                "sugared_genericSig": "<Self where Self : BeaconMesh.TransportManaging>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
             "kind": "Function",
             "name": "start",
             "printedName": "start(apiKey:)",
@@ -4342,6 +4520,27 @@
             "sugared_genericSig": "<Self where Self : BeaconMesh.TransportManaging>",
             "protocolReq": true,
             "throwing": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "destroySession",
+            "printedName": "destroySession()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10BeaconMesh17TransportManagingP14destroySessionyyF",
+            "mangledName": "$s10BeaconMesh17TransportManagingP14destroySessionyyF",
+            "moduleName": "BeaconMesh",
+            "genericSig": "<τ_0_0 where τ_0_0 : BeaconMesh.TransportManaging>",
+            "sugared_genericSig": "<Self where Self : BeaconMesh.TransportManaging>",
+            "protocolReq": true,
             "reqNewWitnessTableEntry": true,
             "funcSelfKind": "NonMutating"
           }
@@ -4717,6 +4916,67 @@
             "init_kind": "Designated"
           },
           {
+            "kind": "Var",
+            "name": "currentUUID",
+            "printedName": "currentUUID",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.UUID?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UUID",
+                    "printedName": "Foundation.UUID",
+                    "usr": "s:10Foundation4UUIDV"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:10BeaconMesh0aB6ClientC11currentUUID10Foundation0E0VSgvp",
+            "mangledName": "$s10BeaconMesh0aB6ClientC11currentUUID10Foundation0E0VSgvp",
+            "moduleName": "BeaconMesh",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Foundation.UUID?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "UUID",
+                        "printedName": "Foundation.UUID",
+                        "usr": "s:10Foundation4UUIDV"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10BeaconMesh0aB6ClientC11currentUUID10Foundation0E0VSgvg",
+                "mangledName": "$s10BeaconMesh0aB6ClientC11currentUUID10Foundation0E0VSgvg",
+                "moduleName": "BeaconMesh",
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
             "kind": "Function",
             "name": "start",
             "printedName": "start(apiKey:)",
@@ -4770,6 +5030,28 @@
           },
           {
             "kind": "Function",
+            "name": "resetSession",
+            "printedName": "resetSession()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10BeaconMesh0aB6ClientC12resetSessionyyF",
+            "mangledName": "$s10BeaconMesh0aB6ClientC12resetSessionyyF",
+            "moduleName": "BeaconMesh",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "sendP2PMessage",
             "printedName": "sendP2PMessage(_:to:)",
             "children": [
@@ -4792,14 +5074,15 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:10BeaconMesh0aB6ClientC14sendP2PMessage_2toy10Foundation4DataV_AF4UUIDVtF",
-            "mangledName": "$s10BeaconMesh0aB6ClientC14sendP2PMessage_2toy10Foundation4DataV_AF4UUIDVtF",
+            "usr": "s:10BeaconMesh0aB6ClientC14sendP2PMessage_2toy10Foundation4DataV_AF4UUIDVtKF",
+            "mangledName": "$s10BeaconMesh0aB6ClientC14sendP2PMessage_2toy10Foundation4DataV_AF4UUIDVtKF",
             "moduleName": "BeaconMesh",
             "declAttributes": [
               "Final",
               "AccessControl",
               "RawDocComment"
             ],
+            "throwing": true,
             "funcSelfKind": "NonMutating"
           },
           {
@@ -4820,14 +5103,15 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:10BeaconMesh0aB6ClientC20sendBroadcastMessageyy10Foundation4DataVF",
-            "mangledName": "$s10BeaconMesh0aB6ClientC20sendBroadcastMessageyy10Foundation4DataVF",
+            "usr": "s:10BeaconMesh0aB6ClientC20sendBroadcastMessageyy10Foundation4DataVKF",
+            "mangledName": "$s10BeaconMesh0aB6ClientC20sendBroadcastMessageyy10Foundation4DataVKF",
             "moduleName": "BeaconMesh",
             "declAttributes": [
               "Final",
               "AccessControl",
               "RawDocComment"
             ],
+            "throwing": true,
             "funcSelfKind": "NonMutating"
           },
           {
@@ -4901,7 +5185,7 @@
           {
             "kind": "Function",
             "name": "transportManager",
-            "printedName": "transportManager(_:didReceive:)",
+            "printedName": "transportManager(_:didReceive:from:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -4919,11 +5203,17 @@
                 "name": "Data",
                 "printedName": "Foundation.Data",
                 "usr": "s:10Foundation4DataV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UUID",
+                "printedName": "Foundation.UUID",
+                "usr": "s:10Foundation4UUIDV"
               }
             ],
             "declKind": "Func",
-            "usr": "s:10BeaconMesh0aB6ClientC16transportManager_10didReceiveyAA17TransportManaging_p_10Foundation4DataVtF",
-            "mangledName": "$s10BeaconMesh0aB6ClientC16transportManager_10didReceiveyAA17TransportManaging_p_10Foundation4DataVtF",
+            "usr": "s:10BeaconMesh0aB6ClientC16transportManager_10didReceive4fromyAA17TransportManaging_p_10Foundation4DataVAH4UUIDVtF",
+            "mangledName": "$s10BeaconMesh0aB6ClientC16transportManager_10didReceive4fromyAA17TransportManaging_p_10Foundation4DataVAH4UUIDVtF",
             "moduleName": "BeaconMesh",
             "declAttributes": [
               "Final",
@@ -5160,7 +5450,7 @@
     {
       "filePath": "\/Users\/francisco\/Desktop\/beacon-mesh-ios\/BeaconMesh\/BeaconMesh\/TransportManager\/TransportManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 627,
+      "offset": 699,
       "length": 5,
       "value": "false"
     },
