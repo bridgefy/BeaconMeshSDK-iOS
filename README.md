@@ -125,6 +125,7 @@ extension MyClass: BeaconMeshClientDelegate {
     func beaconMeshClient(
         _ client: BeaconMeshClient,
         didReceiveP2PMessage payload: Data,
+        with messageId: UUID,
         from peerID: UUID
     ) {
         print("P2P message from:", peerID)
@@ -133,6 +134,7 @@ extension MyClass: BeaconMeshClientDelegate {
     func beaconMeshClient(
         _ client: BeaconMeshClient,
         didReceiveBroadcastMessage payload: Data,
+        with messageId: UUID,
         from peerID: UUID
     ) {
         print("Broadcast message from:", peerID)
