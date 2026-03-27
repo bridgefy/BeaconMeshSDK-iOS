@@ -10,7 +10,7 @@
 		</data>
 		<key>Modules/BeaconMesh.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		M30n1ARxjPlAPZWO5ikW5lNWqms=
+		Dsok52eINIh3vKXfRZR04mJrt2w=
 		</data>
 		<key>Modules/BeaconMesh.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -26,11 +26,11 @@
 		</data>
 		<key>Modules/BeaconMesh.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		jy+3laEL3E+l7002f2iUY/dyWoo=
+		6p1xHrXRXt70YXDaUTuWylkGjX4=
 		</data>
 		<key>Modules/BeaconMesh.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		M30n1ARxjPlAPZWO5ikW5lNWqms=
+		Dsok52eINIh3vKXfRZR04mJrt2w=
 		</data>
 		<key>Modules/BeaconMesh.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -46,7 +46,7 @@
 		</data>
 		<key>Modules/BeaconMesh.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		L2iI7JAcH3VY6kYA2JaTrZ9d2qc=
+		BQYhBMP/fSYM+MBit96d/UoZa1w=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -55,7 +55,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			S28CLxoXv/W+9vaNXaJIdUPn91v0WpBBttExoH60je4=
+			u2wNtPi/fjuCBzB4myfSZy/wPdj+jpndalMhgFfgjgA=
 			</data>
 		</dict>
 		<key>Modules/BeaconMesh.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
@@ -83,14 +83,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			AK6zvqTkmRrca+L2c/pYfTPJdXqITAOg3IlZut0j8y4=
+			iFBgBislASgGHF3nEEVP7589QhZc7KHcQ5Y6AqzjQUE=
 			</data>
 		</dict>
 		<key>Modules/BeaconMesh.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			S28CLxoXv/W+9vaNXaJIdUPn91v0WpBBttExoH60je4=
+			u2wNtPi/fjuCBzB4myfSZy/wPdj+jpndalMhgFfgjgA=
 			</data>
 		</dict>
 		<key>Modules/BeaconMesh.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
@@ -118,7 +118,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			zvd1/ow7xziVHiZI4jkxzdT68uVtbtp50rFf6oY+mNg=
+			TVcHkwF2y66wKLkQyxdL444hHDewt4nim+3dU4UNwGo=
 			</data>
 		</dict>
 	</dict>
