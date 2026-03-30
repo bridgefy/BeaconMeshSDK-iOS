@@ -6,4 +6,3 @@
 //
 
 @_exported import BeaconMesh
-@_exported import BeaconMeshResources
