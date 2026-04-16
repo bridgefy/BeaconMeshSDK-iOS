@@ -31,7 +31,7 @@ Add the SDK to your project using **Swift Package Manager**:
 
 1. In Xcode, go to **File → Add Packages → Add Package Dependency**.
 2. Enter your repository URL: https://github.com/bridgefy/BeaconMeshSDK-iOS
-3. Choose the version tag (for example, `0.1.0`) and add it to your project.
+3. Choose the version tag (for example, `1.0.0`) and add it to your project.
 4. Import the SDK in your Swift files:
 ```swift
 import BeaconMeshSDK
