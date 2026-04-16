@@ -1,5 +1,4 @@
 {
-  "originHash" : "aff77db1349cda0be518e5751f596b2fe5e8c9240dce146ae19dda409082545f",
   "pins" : [
     {
       "identity" : "aws-sdk-ios-spm",
@@ -15,10 +14,10 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/bridgefy/sdk-ios.git",
       "state" : {
-        "revision" : "6af62353bc64478d41a568747a2240504b920ef6",
-        "version" : "1.3.3"
+        "revision" : "1dff736c3397d0c6c65f73450d39944820057935",
+        "version" : "1.3.4"
       }
     }
   ],
-  "version" : 3
+  "version" : 2
 }
