@@ -26,7 +26,7 @@ let package = Package(
         .binaryTarget(
             name: "BeaconMeshBinary",
             url: "https://github.com/FranciscoMkdir/BeaconMeshSDK-iOS-binary/releases/download/1.0.1/BeaconMesh.xcframework.zip",
-            checksum: "271dec355401abd1c32a6f1692899ec2fe260bd792bccdb75c5645ee16ecba63"
+            checksum: "395f03665ec5f4cb80602c52c16d72b1b4cfee9606d38eab7dc8f3c1830ef182"
         ),
         
         .target(
