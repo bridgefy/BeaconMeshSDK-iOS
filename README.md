@@ -88,6 +88,7 @@ The UUID:
 * changes only after calling resetSession()
 
 **Connected Nodes**
+
 Returns an array of `UUID` representing connected peers.
 ```swift
 let connectedNodes = client.connectedNodes
