@@ -87,6 +87,12 @@ The UUID:
 * persists across app launches
 * changes only after calling resetSession()
 
+**Connected Nodes**
+Returns an array of `UUID` representing connected peers.
+```swift
+let connectedNodes = client.connectedNodes
+```
+
 **Reset Session**
 
 Reset the current SDK identity and generate a new UUID on the next start.
