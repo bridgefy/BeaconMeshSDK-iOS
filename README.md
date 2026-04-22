@@ -39,7 +39,17 @@ import BeaconMeshSDK
 
 
 ## Usage
-**Initialize and Start the SDK**
+**Initialize the SDK**
+
+
+```swift
+let client = try BeaconMeshClient(apiKey: "YOUR_API_KEY")
+client.delegate = self
+```
+
+**Start the SDK**
+
+You can optionally provide a user identity. If not provided, the SDK will generate one automatically.
 
 ```swift
 let client = BeaconMeshClient()
@@ -47,11 +57,16 @@ client.delegate = self
 
 Task {
     do {
-        try await client.start(apiKey: "YOUR_API_KEY")
+        try await client.start()
     } catch {
         print("Failed to start BeaconMeshSDK:", error)
     }
 }
+```
+
+Or with a specific user ID:
+```swift
+try await client.start(userId: myUUID)
 ```
 
 **Stop the SDK**
@@ -67,9 +82,17 @@ let uuid = client.currentUUID
 ```
 The UUID:
 
-* is generated after calling start(apiKey:)
+* Generated automatically if no userId is provided in start()
+* Can be manually controlled via start(userId:)
 * persists across app launches
 * changes only after calling resetSession()
+
+**Connected Nodes**
+
+Returns an array of `UUID` representing connected peers.
+```swift
+let connectedNodes = client.connectedNodes
+```
 
 **Reset Session**
 
@@ -77,7 +100,7 @@ Reset the current SDK identity and generate a new UUID on the next start.
 ```swift
 client.resetSession()
 
-try await client.start(apiKey: "YOUR_API_KEY")
+try await client.start()
 
 print(client.currentUUID) // new UUID
 ```
@@ -96,7 +119,8 @@ let payload = "Hello".data(using: .utf8)!
 let peerUUID: UUID = ...
 
 do {
-    try client.sendP2PMessage(payload, to: peerUUID)
+    let messageId = try client.sendP2PMessage(payload, to: peerUUID)
+    print("Message sent with id:", messageId)
 } catch {
     print("Failed to send P2P message:", error)
 }
@@ -107,7 +131,8 @@ do {
 let payload = "Hello everyone".data(using: .utf8)!
 
 do {
-    try client.sendBroadcastMessage(payload)
+    let messageId = try client.sendBroadcastMessage(payload)
+    print("Broadcast sent with id:", messageId)
 } catch {
     print("Failed to send broadcast message:", error)
 }
@@ -119,6 +144,15 @@ do {
 
 ```swift
 extension MyClass: BeaconMeshClientDelegate {
+
+    // MARK: Lifecycle Events
+    func beaconMeshClientDidStart(_ client: BeaconMeshClient) {
+        print("The SDK has successfully started and is ready to operate.")
+    }
+
+    func beaconMeshClientDidStop(_ client: BeaconMeshClient) {
+        print("The SDK has successfully stoped.")
+    }
 
     // MARK: Messages
     
