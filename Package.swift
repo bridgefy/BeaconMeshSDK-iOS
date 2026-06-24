@@ -16,7 +16,7 @@ let package = Package(
     ],
     
     dependencies: [
-        .package(url: "https://github.com/bridgefy/sdk-ios.git", from: "1.3.5"),
+        .package(url: "https://github.com/bridgefy/sdk-ios.git", from: "1.3.6"),
         .package(url: "https://github.com/aws-amplify/aws-sdk-ios-spm", from: "2.0.0")
     ],
     
@@ -25,8 +25,8 @@ let package = Package(
         // Binary SDK
         .binaryTarget(
             name: "BeaconMeshBinary",
-            url: "https://github.com/FranciscoMkdir/BeaconMeshSDK-iOS-binary/releases/download/1.0.5/BeaconMesh.xcframework.zip",
-            checksum: "d57d63226dac191ec33121ce85ba41bb5b5723de9f5dba3761f3c60746ad3645"
+            url: "https://github.com/FranciscoMkdir/BeaconMeshSDK-iOS-binary/releases/download/1.0.6/BeaconMesh.xcframework.zip",
+            checksum: "9f75c7ee25eac107e771e64b791d38e1bb117164c7fb3167a336dc39ca6e3478"
         ),
         
         .target(
