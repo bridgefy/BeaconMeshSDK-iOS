@@ -16,7 +16,7 @@ let package = Package(
     ],
     
     dependencies: [
-        .package(url: "https://github.com/bridgefy/sdk-ios.git", from: "1.3.6"),
+        .package(url: "https://github.com/bridgefy/sdk-ios.git", from: "1.3.7"),
         .package(url: "https://github.com/aws-amplify/aws-sdk-ios-spm", from: "2.0.0")
     ],
     
